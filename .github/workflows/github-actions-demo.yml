@@ -1,14 +1,14 @@
-name: "Newman Test"
-on: "[push, pull_request]
+name: "Newman Tests"
+on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-laster
-    container:
+    runs-on: ubuntu-latest
+    container: 
       image: postman/newman
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Run API Tests
-        run: newman run RestfulBookerBVTLucQAs.postman_collection.json -e Production.postman_environment.json
+        run: newman run "RestfulBookerBVTLucQAs.postman_collection.json" -e Production.postman_environment.json
